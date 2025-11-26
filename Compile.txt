@@ -1,0 +1,18 @@
+For DLLs (download gcc-winx64 from sourceforge by daniel starke, move files into the "bin" folder after extractions and run! note the files from sourceforge might be dangerous as ive not verified them):
+
+g++.exe -shared -O3 -o scanner.dll scanner.cpp -static-libgcc -static-libstdc++
+and
+g++.exe -shared -O3 -o forcer.dll forcer.cpp -static-libgcc -static-libstdc++
+
+or (however the method above is recommended and stable)
+g++.exe -shared -o scanner.dll scanner.cpp -Wl,--subsystem,windows 
+and
+g++.exe -shared -o forcer.dll forcer.cpp -Wl,--subsystem,windows 
+
+For main.py 
+
+python v3.13.7 (add to PATH !)
+then run in command prompt:
+pip install pywin32 psutil pymem
+
+NOTE: main.py and the DLLs must be in the same directory/folder to work.
